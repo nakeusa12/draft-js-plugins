@@ -12,7 +12,14 @@ export default (config = {}) => {
   if (config.decorator) {
     Image = config.decorator(Image);
   }
-  const ThemedImage = props => <Image {...props} theme={theme} />;
+  const extraProps = {};
+  if (config.s3) {
+    extraProps.s3 = config.s3;
+  }
+  let ThemedImage = props => <Image {...props} {...extraProps} theme={theme} />;
+  if (config.imgReplacement) {
+    ThemedImage = () => config.imgReplacement;
+  }
   return {
     blockRendererFn: (block, { getEditorState }) => {
       if (block.getType() === 'atomic') {

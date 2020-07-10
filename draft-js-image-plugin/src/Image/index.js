@@ -19,13 +19,24 @@ export default class Image extends Component {
       ...elementProps
     } = otherProps;
     const combinedClassName = clsx(theme.image, className);
-    const { src } = contentState.getEntity(block.getEntityAt(0)).getData();
+    const { src, bucket, key, width } = contentState
+      .getEntity(block.getEntityAt(0))
+      .getData();
+    let url = src;
+    if (otherProps.s3) {
+      const s3 = otherProps.s3;
+      url = s3.getSignedUrl('getObject', {
+        Bucket: bucket,
+        Key: key,
+      });
+    }
     return (
       <img
         {...elementProps}
-        src={src}
+        src={url}
         role="presentation"
         className={combinedClassName}
+        style={{ width: `${width}%` }}
       />
     );
   }
