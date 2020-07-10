@@ -30,13 +30,20 @@ export default class Image extends Component {
         Key: key,
       });
     }
+
+    const imgStyle = {
+      width:
+        width && !elementProps.style.width
+          ? `${width}%`
+          : elementProps.style.width,
+    };
     return (
       <img
         {...elementProps}
         src={url}
         role="presentation"
         className={combinedClassName}
-        style={{ width: `${width}%` }}
+        style={{ ...elementProps.style, ...imgStyle }}
       />
     );
   }
