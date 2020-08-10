@@ -32,6 +32,7 @@ export default class Image extends Component {
     }
 
     const imgStyle = {
+      ...elementProps.style,
       width:
         width && !elementProps.style.width
           ? `${width}%`
@@ -43,7 +44,7 @@ export default class Image extends Component {
         src={url}
         role="presentation"
         className={combinedClassName}
-        style={{ ...elementProps.style, ...imgStyle }}
+        style={imgStyle}
       />
     );
   }
