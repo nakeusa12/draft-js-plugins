@@ -39,6 +39,7 @@ import CustomToolbarEditor from './static-toolbar-custom-buttons/src/App';
 import ThemedToolbarEditor from './static-toolbar-styled/src/App';
 import SimpleToolbarEditor from './static-toolbar/src/App';
 import DividerWithSideToolbarEditor from './divider-with-side-toolbar/src/App';
+import TableEditor from './table/index.js';
 
 storiesOf('Draft.js Plugins', module)
   .add('Editor with Alignment Plugin', () => <SimpleAlignmentEditor />)
@@ -112,4 +113,5 @@ storiesOf('Draft.js Plugins', module)
   .add('CustomToolbarEditor', () => <CustomToolbarEditor />)
   .add('Simple toolbar editor', () => <SimpleToolbarEditor />)
   .add('ThemedToolbarEditor', () => <ThemedToolbarEditor />)
-  .add('Divider with SideToolbar', () => <DividerWithSideToolbarEditor />);
+  .add('Divider with SideToolbar', () => <DividerWithSideToolbarEditor />)
+  .add('Table editor', () => <TableEditor />);

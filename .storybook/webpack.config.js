@@ -23,6 +23,7 @@ const packages = [
   'draft-js-buttons',
   'draft-js-video-plugin',
   'draft-js-divider-plugin',
+  'draft-js-table-plugin',
 ];
 
 const packagesAliases = {};

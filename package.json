@@ -34,7 +34,8 @@
     "draft-js-static-toolbar-plugin",
     "draft-js-sticker-plugin",
     "draft-js-undo-plugin",
-    "draft-js-video-plugin"
+    "draft-js-video-plugin",
+    "draft-js-table-plugin"
   ],
   "main": "lib/index.js",
   "keywords": [
@@ -122,6 +123,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "decorate-component-with-props": "^1.1.0",
     "draft-js": "^0.11.0",
     "emojione": "^2.2.7",
     "eslint-plugin-import": "^2.2.0",

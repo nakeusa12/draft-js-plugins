@@ -83,25 +83,27 @@ export default class TableAdd extends Component {
         )}
         {this.props.render && this.props.render({ onClick: this.openPopover })}
         <div className={popoverClassName} onClick={this.onPopoverClick}>
-          <p>Add a Table</p>
-          <input
-            type="text"
-            placeholder="Columns"
-            className={styles.addVideoInput}
-            onChange={this.changeCols}
-            value={this.state.columns}
-          />
-          <input
-            type="text"
-            placeholder="Rows"
-            className={styles.addVideoInput}
-            onChange={this.changeRows}
-            value={this.state.rows}
-          />
+          <div style={{ marginBottom: 5 }}>Add a table</div>
+          <div><span style={{ display: 'block' }}>rows: </span>
+            <input
+              type="text"
+              placeholder="Rows"
+              onChange={this.changeRows}
+              value={this.state.rows}
+            />
+          </div>
+          <div><span style={{ display: 'block' }}>cols: </span>
+            <input
+              type="text"
+              placeholder="Columns"
+              onChange={this.changeCols}
+              value={this.state.columns}
+            />
+          </div>
           <button
-            className={styles.addVideoConfirmButton}
             type="button"
             onClick={this.addTable}
+            style={{ float: 'right' }}
           >
             Add
           </button>

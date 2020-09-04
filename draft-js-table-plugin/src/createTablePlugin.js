@@ -13,17 +13,23 @@ import {
 
 const defaultTheme = tableStyles;
 export default (
-  { tableComponent, onToggleReadOnly, theme, decorator } = {}
+  { tableComponent, onToggleReadOnly, theme, decorator, render } = {}
 ) => {
   const tableTheme = theme || defaultTheme;
   let Table = tableComponent || DefaultTableComponent;
+
   if (decorator) {
     Table = decorator(Table);
   }
-  const ThemedTable = decorateComponentWithProps(Table, {
+
+  let ThemedTable = decorateComponentWithProps(Table, {
     theme: tableTheme,
     onToggleReadOnly,
   });
+
+  if (render) {
+    ThemedTable = () => render;
+  }
 
   return {
     blockRendererFn: (block, { getEditorState, setEditorState }) => {
