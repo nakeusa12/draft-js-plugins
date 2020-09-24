@@ -3,7 +3,7 @@ import clsx from 'clsx';
 
 export default class Image extends Component {
   render() {
-    const { block, className, theme = {}, ...otherProps } = this.props;
+    const { block, className, theme = {}, style = {}, ...otherProps } = this.props;
     // leveraging destructuring to omit certain properties from props
     const {
       blockProps, // eslint-disable-line no-unused-vars
@@ -32,12 +32,15 @@ export default class Image extends Component {
     }
 
     const imgStyle = {
-      ...elementProps.style,
-      width:
-        width && !elementProps.style.width
-          ? `${width}%`
-          : elementProps.style.width,
+      ...style,
     };
+
+    if (!style.width && width) {
+      imgStyle.width = `${width}%`;
+    } else if (style.width) {
+      imgStyle.width = style.width;
+    }
+
     return (
       <img
         {...elementProps}
