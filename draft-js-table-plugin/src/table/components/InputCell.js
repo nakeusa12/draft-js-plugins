@@ -15,7 +15,6 @@ export default class InputCell extends React.Component {
     };
   }
   onChange = e => {
-    this.props.onChange(e.target.value);
     this.setState({
       ...this.state,
       value: e.target.value,
