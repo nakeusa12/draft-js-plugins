@@ -1,6 +1,6 @@
 {
   "name": "@ysqsimon/draft-js-table-plugin",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Personalised Table Plugin for DraftJS built upon @mikeljames/draft-js-image-plugin",
   "author": {
     "name": "Shiqi Yu",
