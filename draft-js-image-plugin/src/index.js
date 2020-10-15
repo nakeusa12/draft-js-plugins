@@ -12,11 +12,7 @@ export default (config = {}) => {
   if (config.decorator) {
     Image = config.decorator(Image);
   }
-  const extraProps = {};
-  if (config.s3) {
-    extraProps.s3 = config.s3;
-  }
-  let ThemedImage = props => <Image {...props} {...extraProps} theme={theme} />;
+  let ThemedImage = props => <Image {...props} getSignedUrl={config.getSignedUrl} theme={theme} />;
   if (config.imgReplacement) {
     ThemedImage = () => config.imgReplacement;
   }

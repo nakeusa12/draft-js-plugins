@@ -3,7 +3,7 @@ import clsx from 'clsx';
 
 export default class Image extends Component {
   render() {
-    const { block, className, theme = {}, style = {}, ...otherProps } = this.props;
+    const { block, className, theme = {}, style = {}, getSignedUrl, ...otherProps } = this.props;
     // leveraging destructuring to omit certain properties from props
     const {
       blockProps, // eslint-disable-line no-unused-vars
@@ -23,12 +23,8 @@ export default class Image extends Component {
       .getEntity(block.getEntityAt(0))
       .getData();
     let url = src;
-    if (otherProps.s3) {
-      const s3 = otherProps.s3;
-      url = s3.getSignedUrl('getObject', {
-        Bucket: bucket,
-        Key: key,
-      });
+    if (getSignedUrl) {
+      url = getSignedUrl(bucket, key);
     }
 
     const imgStyle = {
